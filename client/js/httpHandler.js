@@ -8,18 +8,19 @@
   // TODO: build the swim command fetcher here
   const ajaxGetReqSwimCommand = () => {
     $.ajax({
-      url: serverUrl,
       type: 'GET',
       url: serverUrl,
       success: (commandReceived) => {
         console.log('here is command received', commandReceived);
+        SwimTeam.move(commandReceived);
       },
       error: () => {
         alert('Error: You can\'t do that');
     }
     });
   };
-  ajaxGetReqSwimCommand();
+  window.setInterval(ajaxGetReqSwimCommand, 500);
+  
   
 
   /////////////////////////////////////////////////////////////////////
